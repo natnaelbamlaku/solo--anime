@@ -1,16 +1,4 @@
 {
-  "buildCommand": "pnpm install --frozen-lockfile=false && pnpm build",
-  "installCommand": "pnpm install --no-frozen-lockfile",
-  "outputDirectory": "dist",
-  "envPrefix": "VITE_",
-  "rewrites": [
-    {
-      "source": "/api/:path*",
-      "destination": "/api/:path*"
-    },
-    {
-      "source": "/:path*",
-      "destination": "/index.html"
-    }
-  ]
+  "buildCommand": "pnpm build",
+  "outputDirectory": "dist"
 }
