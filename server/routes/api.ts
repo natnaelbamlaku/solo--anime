@@ -1,4 +1,5 @@
 import express from 'express';
+import { Readable } from 'node:stream';
 
 const router = express.Router();
 
@@ -118,7 +119,7 @@ router.get('/proxy', async (req, res) => {
     res.setHeader('Cache-Control', 'public, max-age=3600');
     
     if (response.body) {
-      response.body.pipe(res);
+      Readable.fromWeb(response.body as import('node:stream/web').ReadableStream).pipe(res);
     } else {
       res.status(500).send('No response body');
     }

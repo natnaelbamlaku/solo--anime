@@ -1,5 +1,20 @@
 {
   "installCommand": "pnpm install --frozen-lockfile",
   "buildCommand": "pnpm run build",
-  "outputDirectory": "dist"
+  "outputDirectory": "dist/public",
+  "functions": {
+    "api/index.ts": {
+      "includeFiles": ["dist/public/**"]
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
 }
